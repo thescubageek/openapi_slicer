@@ -9,7 +9,7 @@ require "set"
 # (schemas, parameters, etc.) are included.
 class OpenapiSlicer
   # The current version of the OpenapiSlicer
-  VERSION = "0.2.0"
+  VERSION = "0.2.1"
 
   # @return [Hash] the OpenAPI specification loaded from the file
   attr_accessor :spec
