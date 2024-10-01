@@ -5,7 +5,7 @@
 require "test_helper"
 require "json"
 require "yaml"
-require_relative "../lib/openapi_slicer"
+require_relative "../../lib/openapi_slicer"
 
 class OpenapiSlicerTest < Minitest::Test
   def setup

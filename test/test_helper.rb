@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.unshift File.expand_path("../lib", __dir__)
-require "openapi_slicer"
+require_relative "../lib/openapi_slicer"
 
-require "minitest/autorun"
+require 'minitest/autorun'

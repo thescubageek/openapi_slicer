@@ -94,6 +94,31 @@ To install this gem onto your local machine, run:
 bundle exec rake install
 ```
 
+
+## Command-Line Interface (CLI)
+
+To use the CLI, run the `ruby scripts/openapi_slicer` command with the following options:
+
+- `-i`, `--input FILE`: **Required.** The path to the input OpenAPI specification file (in JSON or YAML format).
+- `-r`, `--regex REGEX`: **Required.** A regular expression used to filter the paths from the OpenAPI file.
+- `-o`, `--output FILE`: (Optional) The path where the filtered output will be saved. If not provided, the filtered result will be printed to the console.
+- `-h`, `--help`: Displays help information for the available options.
+
+### Example
+
+Filter an OpenAPI spec file and print the result to the console:
+```bash
+ruby scripts/openapi_slicer -i openapi.json -r '/api/v1/users'
+```
+
+Filter an OpenAPI spec file and save the result to an output file:
+```bash
+ruby scripts/openapi_slicer -i openapi.json -r '/api/v1/users' -o filtered_spec.json
+```
+
+If required options are missing, the CLI will display an error message and terminate.
+
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at [https://github.com/thescubageek/openapi_slicer](https://github.com/thescubageek/openapi_slicer).
