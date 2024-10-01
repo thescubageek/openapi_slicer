@@ -7,7 +7,6 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
-    byebug (11.1.3)
     json (2.7.2)
     language_server-protocol (3.17.0.3)
     minitest (5.25.1)
@@ -39,7 +38,6 @@ PLATFORMS
   x86_64-darwin-23
 
 DEPENDENCIES
-  byebug
   minitest (~> 5.16)
   openapi_slicer!
   rake (~> 13.0)
