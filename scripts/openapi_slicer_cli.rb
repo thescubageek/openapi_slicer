@@ -40,6 +40,11 @@ class OpenapiSlicerCLI
         options[:output_file] = file
       end
 
+      opts.on("-p", "--prettify", "Prettify JS output") do |prettify|
+        options[:prettify] = prettify
+      end
+      options[:prettify] = true unless options.key?(:prettify)
+
       opts.on("-h", "--help", "Displays Help") do
         puts opts
         exit
@@ -65,7 +70,7 @@ class OpenapiSlicerCLI
     parse_options
     validate_options
 
-    slicer = OpenapiSlicer.new(file_path: options[:input_file])
+    slicer = OpenapiSlicer.new(file_path: options[:input_file], prettify: options[:prettify])
     if options[:output_file]
       slicer.export(options[:regex], options[:output_file])
       puts "File created: #{options[:output_file]}"

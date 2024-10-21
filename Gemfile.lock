@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    openapi_slicer (0.2.1)
+    openapi_slicer (0.2.2)
+      wannabe_bool (~> 0.7.1)
 
 GEM
   remote: https://rubygems.org/
@@ -32,6 +33,7 @@ GEM
       parser (>= 3.3.1.0)
     ruby-progressbar (1.13.0)
     unicode-display_width (2.6.0)
+    wannabe_bool (0.7.1)
 
 PLATFORMS
   ruby
@@ -42,6 +44,7 @@ DEPENDENCIES
   openapi_slicer!
   rake (~> 13.0)
   rubocop (~> 1.21)
+  wannabe_bool (~> 0.7.1)
 
 BUNDLED WITH
    2.5.15
