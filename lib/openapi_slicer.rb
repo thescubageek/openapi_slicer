@@ -9,19 +9,22 @@ require "set"
 # (schemas, parameters, etc.) are included.
 class OpenapiSlicer
   # The current version of the OpenapiSlicer
-  VERSION = "0.2.1"
+  VERSION = "0.2.2"
 
   # @return [Hash] the OpenAPI specification loaded from the file
   attr_accessor :spec
+  attr_reader :prettify
 
   # Initializes the OpenapiSlicer.
   #
   # @param file_path [String] the path to the OpenAPI spec file (JSON or YAML)
+  # @param prettify [Boolean] (true) prettify JSON if true, otherwise compress JSON
   # @raise [RuntimeError] if the file is not a JSON or YAML file
-  def initialize(file_path:)
+  def initialize(file_path:, prettify: true)
     raise "Invalid file type. Only JSON and YAML are supported." unless file_path.match?(/\.(json|ya?ml)$/)
 
     @file_path = file_path
+    @prettify = prettify
     @spec = load_spec(file_path)
     @components = {}
     @tags = Set.new
@@ -46,7 +49,7 @@ class OpenapiSlicer
     result = filter(regex)
     File.open(target_file, "w") do |f|
       if target_file.match?(/\.json$/)
-        f.write(result.to_json)
+        f.write(prettify ? JSON.pretty_generate(result) : result.to_json)
       else
         f.write(result.to_yaml)
       end
